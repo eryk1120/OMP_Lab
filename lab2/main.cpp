@@ -30,6 +30,20 @@ cv::Mat task7(cv::Mat image)
   return image; //ret img
 }
 //function solving task8
+cv::Mat task8(cv::Mat image)
+{
+	for (int r = image.rows / 2 - 5; r < image.rows/2 + 5 ; r++)// for iterating over rows
+	{
+		for (int c = image.cols / 2 - 5; c < image.cols / 2 + 5; c++)// for iterating over columns
+		{
+			int data_count = r * image.step + c * 3; // count data index in which current pixel is. 3 is data size for one pixel in current datatype.
+			image.data[data_count + 0] = 0; //change value for blue channel
+			image.data[data_count + 1] = 0; //change value for green channel
+			image.data[data_count + 2] = 255; //change value for red channel
+		}
+	}
+	return image; //ret img
+}
 
 //function solving task9
 cv::Mat task9(cv::Mat image)
